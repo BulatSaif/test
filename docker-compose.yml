@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  ubuntu:
+  appname:
     build: .
     image: test/app:development
     command: sleep 100000
