@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  ubuntu:
+    build: .
+    image: test/app:development
+    command: sleep 100000
+    ports:
+      - 3000:3000
+    environment:
+      - MY_ENV_TEST=TEST_GOOD
+
+  background:
+    image: test/app:development
+    command: sleep 100000
+    environment:
+      - MY_ENV_TEST=TEST_GOOD
+
+
