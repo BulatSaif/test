@@ -12,12 +12,18 @@ def pppp= '1234'
 
 properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'test', randomName: 'choice-parameter-87316749809268', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: 'return [\'ppp\']'], script: [classpath: [], sandbox: false, script: """
 import jenkins.model.*
+import groovy.json.JsonSlurper
 
 def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
   com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null ).find{
     it.id == 'test'}
 
-return [creds.username ,creds.password]
+def response = new URL("https://nexus.iroha.tech/service/rest/beta/search?docker.imageName=sora-middleware/didresolver").text;
+def slurper = new JsonSlurper()
+def tags = slurper.parseText(response)
+
+
+return tags.items.version.sort()
   """]]]])])
 
  stage('all'){
