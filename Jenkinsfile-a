@@ -16,12 +16,10 @@ import groovy.json.JsonSlurper
 
 def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
   com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null ).find{
-    it.id == 'test'}
-
-def response = new URL("https://nexus.iroha.tech/service/rest/beta/search?docker.imageName=sora-middleware/didresolver").text;
+    it.id == 'jenkins_nexus_creds'}
+def response = ("curl https://"+creds.username+":"+creds.password+"@nexus.iroha.tech/service/rest/beta/search?docker.imageName=sora-middleware/didresolver").execute().text
 def slurper = new JsonSlurper()
 def tags = slurper.parseText(response)
-
 
 return tags.items.version.sort()
   """]]]])])
