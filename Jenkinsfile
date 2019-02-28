@@ -11,8 +11,10 @@ def pppp= '1234'
   
 
 properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'test', randomName: 'choice-parameter-87316749809268', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: 'return [\'ppp\']'], script: [classpath: [], sandbox: false, script: """
+import jenkins.model.*
+
 def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
-  com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null );
+  com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null )
 
 for (c in creds) {
   if ( c.id == 'test' ){
