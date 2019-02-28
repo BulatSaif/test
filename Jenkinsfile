@@ -14,17 +14,10 @@ properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELEC
 import jenkins.model.*
 
 def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
-  com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null )
+  com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null ).find{
+    it.id == 'test'}
 
-for (c in creds) {
-  if ( c.id == 'test' ){
-    PASSWORD = c.username
-    USER = c.password
-	break
-  }
-}
-
-return [USER,PASSWORD]
+return [creds.username ,creds.password]
   """]]]])])
 
  stage('all'){
