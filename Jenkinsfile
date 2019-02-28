@@ -1,5 +1,7 @@
 
 node ('master') {
-sh "env"
+  stage('all'){
+    sh "env"
+  }
 }
   
