@@ -6,7 +6,7 @@ withCredentials([usernamePassword(credentialsId: 'test', passwordVariable: 'PASS
    print ("11")
   def gettags = ("env").execute()
 
-  return [gettags.text,"${pppp}",\'3\']
+  return [gettags.text,"${PASSWORD}","${USER}"]
   """]]]])])
 }
  stage('all'){
