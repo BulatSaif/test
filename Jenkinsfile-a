@@ -14,7 +14,6 @@ properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELEC
 import jenkins.model.*
 import groovy.json.JsonSlurper
 
-
 def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
   com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class, Jenkins.instance, null, null ).find{
     it.id == 'jenkins_nexus_creds'}
