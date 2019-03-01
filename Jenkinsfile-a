@@ -13,9 +13,10 @@ properties([parameters([
    def slurper = new JsonSlurper()
    def tags = slurper.parseText(response)
    return tags.items.version.sort()
-   """]]]]
+   """]]]
 
   ])])
+
 
 
 pipeline {
