@@ -1,15 +1,15 @@
 version: 2.1
-jobs: # a basic unit of work in a run
-  build: # runs not using `Workflows` must have a `build` job as entry point
-    macos:  # indicate that we are using the macOS executor
-      xcode: 11.3.0 # indicate our selected version of Xcode
-    steps: # a series of commands to run
-      - checkout  # pull down code from your version control system.
+jobs:
+  build:
+    docker:
+      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    steps:
       - run:
-          # run our tests using xcode's cli tool `xcodebuild`
-          name: Run Unit Tests
+          name: Disk
           command: df -h
       - run:
-          # run our tests using xcode's cli tool `xcodebuild`
-          name: Run Unit Tests
+          name: RAM
           command: free -h
+      - run:
+          name: CPU
+          command: lscpu
