@@ -1,7 +1,5 @@
 #!/usr/bin/env groovy
 
-
-
 pipeline {
   environment {
     CCACHE_DIR = '/opt/.ccache'
