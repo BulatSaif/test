@@ -13,6 +13,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Disk spase
       run: df -h
+    - name: PWD
+      run: pwd
     - name: Ram
       run: free -h
     - name: Cpu
@@ -24,6 +26,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Disk spase
       run: df -h
+    - name: PWD
+      run: pwd
     - name: Ram cpu
       run: system_profiler SPHardwareDataType
 
@@ -33,9 +37,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Disk spase
       run: df -h
-    - name: Disk spase
+    - name: PWD
       run: pwd
     - name: Ram
       run: powershell -Command  systeminfo
-    - name: Cpu
-      run: echo $NUMBER_OF_PROCESSORS
+    - name: CPU1
+      run: powershell -Command (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
+    - name: Cpu2
+      run: echo %NUMBER_OF_PROCESSORS%
