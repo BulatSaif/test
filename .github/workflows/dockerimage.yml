@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Check vm
 
 on:
   push:
@@ -7,11 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-
-  build:
-
+  ubuntu:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Disk spase
@@ -19,4 +16,24 @@ jobs:
     - name: Ram
       run: free -h
     - name: Cpu
-      run: lscpu 
+      run: lscpu
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Disk spase
+      run: df -h
+    - name: Ram cpu
+      run: system_profiler SPHardwareDataType
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Disk spase
+      run: df -h
+    - name: Ram
+      run: powershell -Command  systeminfo
+    - name: Cpu
+      run: echo $NUMBER_OF_PROCESSORS
