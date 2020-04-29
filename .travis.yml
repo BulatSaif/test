@@ -7,4 +7,3 @@ os:
 
 script:
   - df -h
-  - system_profiler SPHardwareDataType
