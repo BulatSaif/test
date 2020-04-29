@@ -1,0 +1,77 @@
+# Docker
+# Check vm 
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Linux
+    displayName: Linux
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: df -h
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: pwd
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: free -h
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: lscpu
+
+  - job: Mac
+    displayName: Mac
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: df -h
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: pwd
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: system_profiler SPHardwareDataType
+
+  - job: Windows
+    displayName: Windows
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: df -h
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: pwd
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: powershell -Command  systeminfo
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: powershell -Command (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
