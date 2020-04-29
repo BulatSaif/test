@@ -7,4 +7,5 @@ os:
 
 script:
   - df -h
+  - free -h
   - sysctl -a
