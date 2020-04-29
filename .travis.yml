@@ -7,6 +7,4 @@ os:
 
 script:
   - df -h
-  - echo $NumberOfCores
-  - echo $NUMBER_OF_PROCESSORS
-  - sysctl -a
+  - powershell -Command  systeminfo
