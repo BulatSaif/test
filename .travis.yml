@@ -7,5 +7,6 @@ os:
 
 script:
   - df -h
-  - free -h
+  - echo $NumberOfCores
+  - echo $NUMBER_OF_PROCESSORS
   - sysctl -a
