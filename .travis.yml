@@ -15,7 +15,6 @@ jobs:
     script:
       - "df -h"
       - "pwd"
-      - "free -h"
       - "system_profiler SPHardwareDataType"
 
   - stage: build
@@ -24,4 +23,4 @@ jobs:
       - df -h
       - pwd
       - powershell -Command  systeminfo
-      - powershell -Command (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
+      - echo $NUMBER_OF_PROCESSORS
