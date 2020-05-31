@@ -3,7 +3,7 @@ name: Check vm
 on:
   push:
     branches: [ master ]
-    tags:
+    tags: ['*']
   pull_request:
     branches: [ master ]
   
