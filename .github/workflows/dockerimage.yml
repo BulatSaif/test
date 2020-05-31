@@ -11,7 +11,10 @@ on:
 
 jobs:
   ubuntu1:
-    if: ${{ github.ref == 'refs/heads/master' || contains(github.ref, "refs/tags/") }}
+    on:
+      push:
+        branches: [ master ]
+        tags: [ '*' ]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
