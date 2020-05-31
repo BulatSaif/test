@@ -28,8 +28,12 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: env
+    - name: print
       run: echo "${{ github.ref}}"
+    - name: print
+      run: echo "${{ github.head_ref }}"
+    - name: print
+      run: echo "${{ github }}"
     - name: Disk spase
       run: df -h
     - name: PWD
