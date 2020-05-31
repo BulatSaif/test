@@ -8,6 +8,7 @@ on:
 
 jobs:
   ubuntu1:
+    if: ${{ github.ref == 'master' && true }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,6 +24,7 @@ jobs:
       run: lscpu
 
   macos:
+    if: ${{ github.ref == 'master' || true }}
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
