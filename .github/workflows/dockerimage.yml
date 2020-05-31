@@ -14,7 +14,7 @@ env:
 jobs:
   ubuntu1:
     if: ${{ github.ref == 'refs/heads/master' || startsWith( github.ref, 'refs/tags/' ) }} 
-    container: "${{ env.INDOCKER_IMAGE }}"
+    container: "{{ env.INDOCKER_IMAGE }}"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
