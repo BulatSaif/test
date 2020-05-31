@@ -29,7 +29,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: env
-      run: env
+      run: echo "${{ github.ref}}"
     - name: Disk spase
       run: df -h
     - name: PWD
