@@ -7,6 +7,8 @@ on:
   pull_request:
     branches: [ master ]
   
+env:
+  INDOCKER_IMAGE: soramitsu/kagome-dev:8
   
 
 jobs:
@@ -33,6 +35,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: github.ref
       run: echo "${{ github.ref}}"
+    - name: INDOCKER_IMAGE
+      run: echo "${{ env.INDOCKER_IMAGE }}"
     - name: github.head_ref
       run: echo "${{ github.head_ref }}"
     - name: github.ref == 'refs/heads/master'
