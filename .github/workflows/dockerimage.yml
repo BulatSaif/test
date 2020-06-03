@@ -38,8 +38,8 @@ jobs:
       run: echo "${{ github.ref}}"
     - name: INDOCKER_IMAGE
       run: echo "${{ env.INDOCKER_IMAGE }}"
-    - name: github.head_ref
-      run: echo "${{ github.head_ref }}"
+    - name: nproc
+      run: nproc
     - name: github.ref == 'refs/heads/master'
       run: echo "${{ github.ref == 'refs/heads/master' }}"
     - name: startsWith( github.ref, 'refs/tags/' )
