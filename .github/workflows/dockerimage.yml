@@ -20,6 +20,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: env
       run: env
+    - name: git rev-parse --abbrev-ref HEAD
+      run: git rev-parse --abbrev-ref HEAD
     - name: git branch
       run: git branch
     - name: Disk spase
