@@ -24,3 +24,4 @@ jobs:
       - pwd
       - powershell -Command  systeminfo
       - echo $NUMBER_OF_PROCESSORS
+
