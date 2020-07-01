@@ -25,8 +25,7 @@ jobs:
     steps:
     - name: pwd
       run: pwd; ls -la ~/; ls -la ./.* || true; du -sch ~/.d* || true
-    - name: Cache multiple paths
-      uses: actions/cache@v2
+    - uses: actions/cache@v2
       with:
         path: ${{ env.CACHE_PATHS }}
         key: ${{ runner.os }}-3
