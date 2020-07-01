@@ -9,7 +9,7 @@ on:
   
 env:
   INDOCKER_IMAGE: soramitsu/kagome-dev:8
-  CACHE_PATHS:: |
+  CACHE_PATHS: |
           ~/Library/Caches
           ~/.cache
           ~/.cargo
