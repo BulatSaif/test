@@ -17,6 +17,10 @@ jobs:
     #container: "{{ env.INDOCKER_IMAGE }}"
     runs-on: ubuntu-latest
     steps:
+    - name: pwd
+      run: pwd; ls -l
+    - name: cpu
+      run: nproc; echo '-' ; sysctl -n hw.ncpu ; echo '-' ; getconf _NPROCESSORS_ONLN ; echo '-' 
     - uses: actions/checkout@v2
     - name: env
       run: env
