@@ -42,6 +42,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+    - name: cpu
+      run: nproc; echo '-' ; sysctl -n hw.ncpu ; echo '-' ; getconf _NPROCESSORS_ONLN ; echo '-' 
     - name: github.ref
       run: echo "${{ github.ref}}"
     - name: github.head_ref
@@ -61,6 +63,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    - name: cpu
+      run: nproc; echo '-' ; sysctl -n hw.ncpu ; echo '-' ; getconf _NPROCESSORS_ONLN ; echo '-' 
     - name: env
       run: env
     - name: Disk spase
