@@ -18,7 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: pwd
-      run: pwd; ls -l
+      run: pwd; ls -la ~/; ls -la ./.* || true; du -sch ~/.d* || true
+    - name: Cache multiple paths
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/Library/Caches
+          ~/.cargo
+          ~/.ccache
+          ~/.hunter
+        key: ${{ runner.os }}-1
+    - name: pwd2
+      run: pwd; ls -la ~/; ls -la ./.* || true ; du -sch ~/.d* || true
     - name: cpu
       run: nproc || echo '-' ; sysctl -n hw.ncpu || echo '-' ; getconf _NPROCESSORS_ONLN || echo '-' 
     - uses: actions/checkout@v2
@@ -36,6 +47,8 @@ jobs:
       run: free -h
     - name: Cpu
       run: lscpu
+    - name: apt
+      run: apt update && apt install -y python-pip && pip install -y ansible 
 
   macos:
     if: ${{ github.ref == 'master' || true }}
