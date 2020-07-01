@@ -48,7 +48,9 @@ jobs:
     - name: Cpu
       run: lscpu
     - name: apt
-      run: apt update && apt install -y python-pip && pip install -y ansible 
+      run: apt update && apt install -y python-pip && pip install  ansible 
+    - name: pwd3
+      run: pwd; ls -la ~/; ls -la ./.* || true ; du -sch ~/.d* || true
 
   macos:
     if: ${{ github.ref == 'master' || true }}
