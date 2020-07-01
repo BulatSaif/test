@@ -25,10 +25,12 @@ jobs:
       with:
         path: |
           ~/Library/Caches
+          ~/.cache
           ~/.cargo
           ~/.ccache
           ~/.hunter
-        key: ${{ runner.os }}-1
+          ~/.rustup
+        key: ${{ runner.os }}-2
     - name: pwd2
       run: pwd; ls -la ~/; ls -la ./.* || true ; du -sch ~/.d* || true
     - name: cpu
