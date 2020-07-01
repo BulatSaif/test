@@ -30,7 +30,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{ env.CACHE_PATHS }}
-        key: ${{ runner.os }}-2
+        key: ${{ runner.os }}-3
     - name: pwd2
       run: pwd; ls -la ~/; ls -la ./.* || true ; du -sch ~/.d* || true
     - name: cpu
