@@ -9,7 +9,8 @@ on:
   
 env:
   INDOCKER_IMAGE: soramitsu/kagome-dev:8
-  
+
+
 
 jobs:
   ubuntu1:
