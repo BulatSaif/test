@@ -64,7 +64,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: cpu
-      run: nproc || echo '-' ; sysctl -n hw.ncpu || echo '-' ; getconf _NPROCESSORS_ONLN || echo '-'
+      run: nproc || echo '-'  ; getconf _NPROCESSORS_ONLN || echo '-'
     - name: env
       run: env
     - name: Disk spase
