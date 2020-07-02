@@ -96,6 +96,7 @@ jobs:
     - name: befor
       run: |
         ls -la ~/
+        ls -la ~/.cache
         ls -la ~/Library/Caches/
         ls -la ~/Library/Caches/pip
         du -sch ~/Library/Caches/pip
@@ -109,6 +110,7 @@ jobs:
         curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly-2019-10-16 --profile minimal 
         echo "------------"
         ls -la ~/
+        ls -la ~/.cache
         ls -la ~/Library/Caches/
         ls -la ~/Library/Caches/pip
         du -sch ~/Library/Caches/pip
