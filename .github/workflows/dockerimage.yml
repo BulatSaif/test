@@ -75,6 +75,24 @@ jobs:
     if: ${{ github.ref == 'master' || true }}
     runs-on: macos-latest
     steps:
+    - name: echo github
+      run: echo "${{ toJSON(github) }}"
+    - name: echo env
+      run: echo "${{ toJSON(env) }}"
+    - name: echo job
+      run: echo "${{ toJSON(job) }}"
+    - name: echo steps
+      run: echo "${{ toJSON(steps) }}"
+    - name: echo runner
+      run: echo "${{ toJSON(runner) }}"
+    - name: echo secrets
+      run: echo "${{ toJSON(secrets) }}"
+    - name: echo strategy
+      run: echo "${{ toJSON(strategy) }}"
+    - name: echo matrix
+      run: echo "${{ toJSON(matrix) }}"
+    - name: echo needs
+      run: echo "${{ toJSON(needs) }}"
     - uses: actions/checkout@v2
     - name: cpu
       run: nproc || echo '-' ; sysctl -n hw.ncpu || echo '-' ; getconf _NPROCESSORS_ONLN || echo '-'
