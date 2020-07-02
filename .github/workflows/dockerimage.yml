@@ -93,6 +93,23 @@ jobs:
       run: echo "${{ toJSON(matrix) }}"
     - name: echo needs
       run: echo "${{ toJSON(needs) }}"
+    - name: befor
+      run: |
+        ls -la ~/
+        ls -la ~/Library/Caches/
+        ls -la ~/Library/Caches/pip
+    - name: dep
+      run: |
+        pip3 install --user pyyaml
+        sudo python3 -m pip install --upgrade pip
+        sudo python3 -m pip install scikit-build
+        sudo python3 -m pip install cmake requests gitpython gcovr
+        export PATH="$HOME/.cargo/bin:$PATH"
+        curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly-2019-10-16 --profile minimal 
+        echo "------------"
+        ls -la ~/
+        ls -la ~/Library/Caches/
+        ls -la ~/Library/Caches/pip
     - uses: actions/checkout@v2
     - name: cpu
       run: nproc || echo '-' ; sysctl -n hw.ncpu || echo '-' ; getconf _NPROCESSORS_ONLN || echo '-'
