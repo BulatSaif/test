@@ -23,6 +23,8 @@ jobs:
     #container: "{{ env.INDOCKER_IMAGE }}"
     runs-on: ubuntu-latest
     steps:
+    - name: echo
+      run: echo "${{ job }}"
     - name: pwd
       run: pwd; ls -la ~/; ls -la ./.* || true; du -sch ~/.d* || true
     - uses: actions/cache@v2
