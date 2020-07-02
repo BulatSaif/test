@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: echo
-      run: echo "${{ job }}"
+      run: echo "${{ toJSON(job) }}"
     - name: pwd
       run: pwd; ls -la ~/; ls -la ./.* || true; du -sch ~/.d* || true
     - uses: actions/cache@v2
