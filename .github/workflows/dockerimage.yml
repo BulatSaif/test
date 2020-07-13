@@ -45,6 +45,8 @@ jobs:
       run: pwd; ls -la ~/; ls -la ./.* || true; du -sch ~/.d* || true
     - name: user
       run: whoami; cat /etc/passwd
+    - name: env
+      run: env 
     - uses: actions/cache@v2
       with:
         path: ${{ env.CACHE_PATHS }}
