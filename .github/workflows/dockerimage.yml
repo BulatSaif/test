@@ -47,6 +47,8 @@ jobs:
       run: whoami; cat /etc/passwd
     - name: env
       run: env 
+    - name: Home
+      run: cd ~/ ; pwd
     - uses: actions/cache@v2
       with:
         path: ${{ env.CACHE_PATHS }}
@@ -70,8 +72,6 @@ jobs:
       run: free -h
     - name: Cpu
       run: lscpu
-    - name: apt
-      run:  apt update &&  apt install -y python-pip && pip install  ansible 
     - name: pwd3
       run: pwd; ls -la ~/; ls -la ./.* || true ; du -sch ~/.d* || true
 
