@@ -69,7 +69,7 @@ jobs:
     - name: Cpu
       run: lscpu
     - name: apt
-      run: sudo apt update && sudo apt install -y python-pip && pip install  ansible 
+      run:  apt update &&  apt install -y python-pip && pip install  ansible 
     - name: pwd3
       run: pwd; ls -la ~/; ls -la ./.* || true ; du -sch ~/.d* || true
 
