@@ -8,7 +8,7 @@ on:
     branches: [ master ]
   
 env:
-  INDOCKER_IMAGE: soramitsu/kagome-dev:8
+  INDOCKER_IMAGE: 
   CACHE_PATHS: |
           ~/Library/Caches
           ~/.cache
@@ -20,7 +20,7 @@ env:
 jobs:
   ubuntu1:
     #if: ${{ github.ref == 'refs/heads/master' || startsWith( github.ref, 'refs/tags/' ) }} 
-    #container: "{{ env.INDOCKER_IMAGE }}"
+    container: soramitsu/kagome-dev:10
     runs-on: ubuntu-latest
     steps:
     - name: echo github
@@ -43,6 +43,8 @@ jobs:
       run: echo "${{ toJSON(needs) }}"
     - name: pwd
       run: pwd; ls -la ~/; ls -la ./.* || true; du -sch ~/.d* || true
+    - name: user
+      run: whoami; cat /etc/passwd
     - uses: actions/cache@v2
       with:
         path: ${{ env.CACHE_PATHS }}
@@ -73,7 +75,7 @@ jobs:
 
   macos:
     if: ${{ github.ref == 'master' || true }}
-    runs-on: macos-10.13
+    runs-on: macos-latest
     steps:
     - name: echo github
       run: echo "${{ toJSON(github) }}"
