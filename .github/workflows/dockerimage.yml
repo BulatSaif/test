@@ -17,6 +17,7 @@ env:
           ~/.hunter
           ~/.rustup
 
+
 jobs:
   ubuntu1:
     if: ${{ github.ref != 'refs/heads/master'}} 
