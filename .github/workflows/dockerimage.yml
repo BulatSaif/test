@@ -19,7 +19,7 @@ env:
 
 jobs:
   ubuntu1:
-    if: ${{ github.ref != 'refs/heads/master'}} 
+    #if: ${{ github.ref != 'refs/heads/master'}} 
     container: soramitsu/kagome-dev:10
     runs-on: ubuntu-latest
     steps:
