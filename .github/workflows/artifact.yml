@@ -9,13 +9,12 @@ on:
 
 jobs:
   ubuntu1:
-    #if: ${{ github.ref != 'refs/heads/master'}} 
-    container: soramitsu/kagome-dev:10
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
     - run: mkdir -p path/to/artifact
+    - run: curl --version
 
     - run: echo hello > path/to/artifact/world.txt
 
