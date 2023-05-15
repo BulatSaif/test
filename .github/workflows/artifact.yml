@@ -1,0 +1,25 @@
+name: artifact
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  
+
+jobs:
+  ubuntu1:
+    #if: ${{ github.ref != 'refs/heads/master'}} 
+    container: soramitsu/kagome-dev:10
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - run: mkdir -p path/to/artifact
+
+    - run: echo hello > path/to/artifact/world.txt
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: path/to/artifact/world.txt
