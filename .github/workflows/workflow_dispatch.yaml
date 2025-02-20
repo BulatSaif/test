@@ -1,0 +1,19 @@
+name: test workflow_dispatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ubuntu1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo github.ref_name 
+      run: echo "${{ github.ref_name }}"
+    - name: echo github
+      run: echo "${{ toJSON(github) }}"
+    - name: echo env
+      run: echo "${{ toJSON(env) }}"
+    - name: echo job
+      run: echo "${{ toJSON(job) }}"
+    - name: echo steps
+      run: echo "${{ toJSON(steps) }}"
